@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ef9854e-2725-4551-8a0c-36b46f39df23" name="Changes" comment="Login/Register/Account Func Working" />
+    <list default="true" id="1ef9854e-2725-4551-8a0c-36b46f39df23" name="Changes" comment="FIX">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ItemsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ItemsController.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -143,6 +146,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="1ef9854e-2725-4551-8a0c-36b46f39df23" name="Changes" comment="" />
+      <changelist id="" name="New changelist" comment="" />
       <created>1644232348932</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -154,6 +158,7 @@
       <workItem from="1644703374045" duration="711000" />
       <workItem from="1644704889880" duration="94000" />
       <workItem from="1644705449555" duration="646000" />
+      <workItem from="1644707700677" duration="648000" />
     </task>
     <task id="LOCAL-00001" summary="Login/Register/Account Func Working">
       <created>1644703146906</created>
@@ -169,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644705476992</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="FIX">
+      <created>1644707710323</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1644707710323</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +201,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Login/Register/Account Func Working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login/Register/Account Func Working" />
+    <MESSAGE value="FIX" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIX" />
   </component>
 </project>
