@@ -18,7 +18,7 @@
     <i class="ri-instagram-fill"></i>
     <i class="ri-twitter-fill"></i>
 </div>
-<div class="container" id="product">
+<div class="container" id="product" data-aos="fade-right">
     <div class="split">
         <div class="picture container-1">
             <img src="{{ $product2->productImg }}" alt="Zdjęcie złotego stołu z rybkami">
