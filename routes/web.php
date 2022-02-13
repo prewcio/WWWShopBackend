@@ -18,6 +18,7 @@ Route::get('/testSet',"CustomersController@setSession");
 Route::get('/login',"CustomersController@loginIndex");
 Route::get('/register',"CustomersController@registerIndex");
 Route::get('/logout',"CustomersController@logout");
+Route::get('/cart',"ItemsController@cart");
 
 //POST
 Route::post('/sendMessage','MessageController@send');

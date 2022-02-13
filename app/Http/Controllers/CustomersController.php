@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use App\Customer;
 use http\Env\Response;
 use Illuminate\Http\Request;
@@ -15,10 +16,12 @@ class CustomersController extends BaseController
 {
     public function list(Request $request){
         if(isset($_COOKIE['sessionID'])) {
-            $customers = Customer::all();
-            $customer = $customers->where('sessionID', $_COOKIE['sessionID'])->first();
+            $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+            $customerID = $customer->id;
+            $cart = Cart::where('customerID', $customerID)->first();
             return view('internal.account', [
-                'customer' => $customer
+                'customer' => $customer,
+                'cart' => $cart
             ]);
         } else {
             return Redirect::to('/login');
@@ -31,11 +34,25 @@ class CustomersController extends BaseController
     }
 
     public function loginIndex(Request $request){
-        return view('internal.login');
+        if(!isset($_COOKIE['sessionID'])) {
+            $cart = 0;
+            return view('internal.login', [
+                'cart' => $cart
+            ]);
+        } else {
+            return Redirect::to('/account');
+        }
     }
 
     public function registerIndex(Request $request){
-        return view('internal.register');
+        if(!isset($_COOKIE['sessionID'])) {
+            $cart = 0;
+            return view('internal.register', [
+                'cart' => $cart
+            ]);
+        } else {
+            return Redirect::to('/account');
+        }
     }
 
     public function registerUser(Request $request){
