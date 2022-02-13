@@ -1,5 +1,7 @@
 @include('navi')
 <link href="{{ asset('css/cart.css') }}" media="all" rel="stylesheet" type="text/css" />
+<<<<<<< HEAD
+=======
 <!-- <div class="content">
 <div class="row">
     @if( $cart )
@@ -25,11 +27,12 @@
 </div>
 </div> -->
 
+>>>>>>> 0088ef830918d8f9a7488b9796e852b30adb4da8
 <div class="content">
     <div class="row">
         <div class="box-element">
             <div class="shop-btn">
-                <a href="/">&#x2190; Kontynuj zakupy</a>
+                <div class="space-btn btn-wd"><a href="/">&#x2190; Kontynuj zakupy</a></div>
             </div>
             <br>
             <hr>
@@ -64,7 +67,7 @@
             </div>
 
             <div class="cart-row">
-                <div style="flex:2"><img src="{{ $product1->productImg }}" alt="Stół" width="100px"/></div>
+                <div style="flex:2"><img src="{{ $product1->productImg }}" alt="Stół" class="row-image"/></div>
                 <div style="flex:2">
                     <p>{{ $product1->productName }}</p>
                 </div>
@@ -96,7 +99,7 @@
             </div>
 
             <div class="cart-row">
-                <div style="flex:2"><img src="{{ $product2->productImg }}" alt="Stół" width="100px"/></div>
+                <div style="flex:2"><img src="{{ $product2->productImg }}" alt="Stół" class="row-image"/></div>
                 <div style="flex:2">
                     <p>{{ $product2->productName }}</p>
                 </div>

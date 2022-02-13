@@ -1,5 +1,7 @@
 .content {
-    margin: 100px 20px 0px 20px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
     color: var(--color-white);
     display: flex;
     justify-content: center;
@@ -82,19 +84,98 @@
     cursor: pointer;
     font-size: 1.2rem;
 }
-
-.shop-btn {
-    padding-bottom: 10px;
-    padding: 10px;
-    background-color: var(--color-white);
+.btn-wd {
     width: 200px;
-}
-
-.shop-btn a {
-    color: var(--color-black);
-    text-decoration: none;
 }
 
 .row-image {
     width: 100px;
+}
+@media (min-width: 768px) and (max-width: 1400px) {
+    .row {
+        margin-bottom: 120px;
+    }
+
+    .blur img {
+        height: 100%;
+    }
+
+    .box-element {
+        width: 47rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    .cart-row p {
+        font-size: 14px;
+    }
+    .content h5 {
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    .content .margins {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .cart-row {
+        display: flex;
+        align-items: flex-stretch;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ececec;
+    }
+
+    .product {
+        border-radius: 0 0 4px 4px;
+    }
+
+    .box-element {
+        box-shadow: #dfbe69c2 0 0 16px;
+        background-color: var(--color-gold);
+        border-radius: 4px;
+        padding: 10px;
+        width: 30rem;
+    }
+    .quantity {
+        display: inline-block;
+        font-weight: 700;
+        padding-right: 10px;
+    }
+
+    .chg-quantity {
+        width: 12px;
+        cursor: pointer;
+        display: block;
+        margin-top: 5px;
+        transition: .1s;
+    }
+
+    .chg-quantity:hover {
+        opacity: .6;
+    }
+
+    .space {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .space-btn {
+        background-color: var(--color-white);
+        padding: 5px;
+    }
+
+    .space-btn a {
+        text-decoration: none;
+        color: var(--color-black);
+        cursor: pointer;
+        font-size: 14px;
+    }
+    .btn-wd {
+        width: 150px;
+    }
+
+    .row-image {
+        width: 80px;
+    }
 }
