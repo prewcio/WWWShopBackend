@@ -1,5 +1,33 @@
 @include('navi')
 <link href="{{ asset('css/cart.css') }}" media="all" rel="stylesheet" type="text/css" />
+<<<<<<< HEAD
+=======
+<!-- <div class="content">
+<div class="row">
+    @if( $cart )
+        @if( $cart->item1Quantity > 0)
+            <div class="box-element">
+                <img src="{{ $product1->productImg }}" alt="Stół" width="100px"/>
+                <h3>Nazwa:</h3><p>{{ $product1->productName }}</p>
+                <h3>Cena za szt:</h3><p>{{ $product1->productPrice }}</p>
+                <h3>Ilosc:</h3><p>{{ $cart->item1Quantity }}</p>
+                <h3>Cena koncowa:</h3><p>{{ $product1->productPrice*$cart->item1Quantity }}</p>
+            </div>
+        @endif
+        @if( $cart->item2Quantity > 0)
+        <div class="box-element">
+            <img src="{{ $product2->productImg }}" alt="Stół" width="100px">
+            <h3>Nazwa:</h3><p>{{ $product2->productName }}</p>
+            <h3>Cena za szt:</h3><p>{{ $product2->productPrice }}</p>
+            <h3>Ilosc:</h3><p>{{ $cart->item2Quantity }}</p>
+            <h3>Cena koncowa:</h3><p>{{ $product2->productPrice*$cart->item2Quantity }}</p>
+        </div>
+        @endif
+    @endif
+</div>
+</div> -->
+
+>>>>>>> 0088ef830918d8f9a7488b9796e852b30adb4da8
 <div class="content">
     <div class="row">
         <div class="box-element">
