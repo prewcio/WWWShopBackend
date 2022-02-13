@@ -1,5 +1,6 @@
 @include('navi')
 <link href="{{ asset('css/main.css') }}" media="all" rel="stylesheet" type="text/css" />
+<button onclick="topFunction()" id="btn-top"><i class="ri-arrow-up-line"></i></button>
 <div class="container container-0" data-aos="fade-left" data-aos-duration="2000">
     <div class="split">
         <div class="text text-0">
@@ -13,7 +14,7 @@
         </div>
     </div>
 </div>
-<div class="socials">
+<div class="socials" data-aos="fade-left" data-aos-duration="2000">
     <i class="ri-facebook-fill"></i>
     <i class="ri-instagram-fill"></i>
     <i class="ri-twitter-fill"></i>
@@ -27,7 +28,7 @@
             <h1>{{ $product1->productName }}</h1>
             <p>{{ $product1->productDesc }}</p>
             <h2>{{ $product1->productPrice }}</h2>
-            <button><a>Dodaj do koszyka</a></button>
+            <button><a id="Table1">Dodaj do koszyka</a></button>
         </div>
     </div>
 </div>
@@ -37,7 +38,7 @@
             <h1>{{ $product2->productName }}</h1>
             <p>{{ $product2->productDesc }}</p>
             <h2>{{ $product2->productPrice }}</h2>
-            <button><a>Dodaj do koszyka</a></button>
+            <button><a id="Table2">Dodaj do koszyka</a></button>
         </div>
         <div class="picture container-2">
             <img src="{{ $product1->productImg }}" alt="Zdjęcie złotego stołu z rybkami">

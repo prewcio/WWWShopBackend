@@ -54,4 +54,84 @@ class ItemsController extends BaseController
             return Redirect::to('/login');
         }
     }
+
+    public function addToBasket($id){
+        if(isset($_COOKIE['sessionID'])) {
+            $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+            $customerID = $customer->id;
+            $cart = Cart::where('customerID', $customerID)->first();
+            if($id=='table1'){
+                $cart->customerID = $customerID;
+                $cart->item1Quantity = $cart->item1Quantity+1;
+                $cart->item2Quantity = $cart->item2Quantity;
+                $cart->save();
+            } else if($id=='table2'){
+                $cart->customerID = $customerID;
+                $cart->item1Quantity = $cart->item1Quantity;
+                $cart->item2Quantity = $cart->item2Quantity+1;
+                $cart->save();
+            }
+            $items = Product::all();
+            return Redirect::to('/');
+        } else {
+            return Redirect::to('/login');
+        }
+    }
+
+    public function item1Add(){
+        if(isset($_COOKIE['sessionID'])) {
+            $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+            $customerID = $customer->id;
+            $cart = Cart::where('customerID', $customerID)->first();
+            $cart->customerID = $customerID;
+            $cart->item1Quantity = $cart->item1Quantity+1;
+            $cart->item2Quantity = $cart->item2Quantity;
+            $cart->save();
+            return Redirect::back();
+        } else {
+            return Redirect::to('/login');
+        }
+    }
+    public function item1Rem(){
+        if(isset($_COOKIE['sessionID'])) {
+            $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+            $customerID = $customer->id;
+            $cart = Cart::where('customerID', $customerID)->first();
+            $cart->customerID = $customerID;
+            $cart->item1Quantity = $cart->item1Quantity-1;
+            $cart->item2Quantity = $cart->item2Quantity;
+            $cart->save();
+            return Redirect::back();
+        } else {
+            return Redirect::to('/login');
+        }
+    }
+    public function item2Add(){
+        if(isset($_COOKIE['sessionID'])) {
+            $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+            $customerID = $customer->id;
+            $cart = Cart::where('customerID', $customerID)->first();
+            $cart->customerID = $customerID;
+            $cart->item1Quantity = $cart->item1Quantity;
+            $cart->item2Quantity = $cart->item2Quantity+1;
+            $cart->save();
+            return Redirect::back();
+        } else {
+            return Redirect::to('/login');
+        }
+    }
+    public function item2Rem(){
+        if(isset($_COOKIE['sessionID'])) {
+            $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+            $customerID = $customer->id;
+            $cart = Cart::where('customerID', $customerID)->first();
+            $cart->customerID = $customerID;
+            $cart->item1Quantity = $cart->item1Quantity;
+            $cart->item2Quantity = $cart->item2Quantity-1;
+            $cart->save();
+            return Redirect::back();
+        } else {
+            return Redirect::to('/login');
+        }
+    }
 }
