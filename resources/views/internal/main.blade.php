@@ -1,6 +1,6 @@
 @include('navi')
 <link href="{{ asset('css/main.css') }}" media="all" rel="stylesheet" type="text/css" />
-<div class="container container-0">
+<div class="container container-0" data-aos="fade-left" data-aos-duration="2000">
     <div class="split">
         <div class="text text-0">
             <h1>{{ $product1->productName }}</h1>
@@ -18,9 +18,9 @@
     <i class="ri-instagram-fill"></i>
     <i class="ri-twitter-fill"></i>
 </div>
-<div class="container" id="product">
+<div class="container" id="product" data-aos="fade-right" data-aos-duration="2000">
     <div class="split">
-        <div class="picture container-1">
+        <div class="picture">
             <img src="{{ $product2->productImg }}" alt="Zdjęcie złotego stołu z rybkami">
         </div>
         <div class="text text-2">
@@ -31,7 +31,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container" data-aos="fade-left" data-aos-duration="2000">
     <div class="split">
         <div class="text text-1">
             <h1>{{ $product2->productName }}</h1>
@@ -44,7 +44,7 @@
         </div>
     </div>
 </div>
-<div class="container contact">
+<div class="container contact" data-aos="fade-zoom" data-aos-duration="2000">
     <div class="split">
         <div class="contactForm">
             <form action="{{ url('/sendMessage') }}" method="POST">

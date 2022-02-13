@@ -10,13 +10,6 @@
     margin-right: auto;
     margin-top: 120px;
 }
-.container {
-    margin-inline: auto;
-    width: min(90%, 110rem);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 90px;
-}
 .text-0 {
     margin-top: 8rem;
 }
@@ -74,10 +67,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.container-1 {
-    display: block;
-    justify-content: left;
 }
 
 .picture img {
@@ -230,10 +219,6 @@
     .picture img {
         width: 335px;
         height: 335px;
-    }
-    .container-1 {
-        display: block;
-        justify-content: center;
     }
     .text button {
         margin-top: 50px;
