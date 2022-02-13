@@ -19,7 +19,10 @@ Route::get('/login',"CustomersController@loginIndex");
 Route::get('/register',"CustomersController@registerIndex");
 Route::get('/logout',"CustomersController@logout");
 Route::get('/cart',"ItemsController@cart");
-Route::get('/addToBasket/{item}',"ItemsController@addToBasket");
+Route::get('/addItem1',"ItemsController@item1Add");
+Route::get('/remItem1',"ItemsController@item1Rem");
+Route::get('/addItem2',"ItemsController@item2Add");
+Route::get('/remItem2',"ItemsController@item2Rem");
 
 //POST
 Route::post('/sendMessage','MessageController@send');
