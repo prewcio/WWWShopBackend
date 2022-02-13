@@ -23,13 +23,9 @@ class ItemsController extends BaseController
 
     public function items(){
         $items = Product::all();
-        $product1 = $items->get(0);
-        $product2 = $items->get(1);
-        $product3 = $items->get(2);
         return view('internal.main', [
-           'item1'=>$product1,
-           'item2'=>$product2,
-           'item3'=>$product3 
+            'product1'=>$items->first(),
+            'product2'=>$items->last()
         ]);
     }
 }
