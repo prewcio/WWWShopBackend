@@ -60,7 +60,7 @@ class CustomersController extends BaseController
             $customer = new Customer();
             $customer->firstName = $request->input('firstName');
             $customer->lastName = $request->input('lastName');
-            $customer->email = $request->input('email');
+            $customer->email = strtolower($request->input('email'));
             $customer->password = password_hash($request->input('password'),PASSWORD_BCRYPT);
             $customer->sessionID = "";
             $customer->save();
@@ -69,7 +69,7 @@ class CustomersController extends BaseController
     }
 
     public function loginCheck(Request $request){
-        $customer = Customer::where('email',$request->input('email'))->first();
+        $customer = Customer::where('email',strtolower($request->input('email')))->first();
         if($customer){
             if(password_verify($request->input('password'),$customer->password)){
                 setcookie('sessionID',csrf_token(),0);
