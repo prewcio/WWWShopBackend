@@ -35,3 +35,16 @@ if(remItem2) {
         location.href = '/remItem2'
     }
 }
+btntop = document.getElementById("btn-top");
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+    if (window.scrollY) {
+        btntop.style.display = "block";
+    } else {
+        btntop.style.display = "none";
+    }
+}
+function topFunction() {
+    window.scrollTo(0,0);
+}
