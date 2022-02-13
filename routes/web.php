@@ -13,7 +13,7 @@
 
 //GET
 Route::get('/account', 'CustomersController@list');
-Route::get('/','ItemsController@list');
+Route::get('/','ItemsController@items');
 Route::get('/testSet',"CustomersController@setSession");
 Route::get('/login',"CustomersController@loginIndex");
 Route::get('/register',"CustomersController@registerIndex");

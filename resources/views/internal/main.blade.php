@@ -136,6 +136,18 @@
         }
     }
 </style>
+<div class="container">
+    <h1>{{ $product1->productName }}</h1>
+    <p>{{ $product1->productDesc }}</p>
+    <p>{{ $product1->productPrice }}</p>
+    <img src="{{ $product1->productImg }}" alt="Zdjęcie złotego stołu z rybkami">
+</div>
+<div class="container">
+    <h1>{{ $product2->productName }}</h1>
+    <p>{{ $product2->productDesc }}</p>
+    <p>{{ $product2->productPrice }}</p>
+    <img src="{{ $product2->productImg }}" alt="Zdjęcie czarnego stołu z rybkami">
+</div>
 <div class="container contact">
     <div class="split">
         <div class="contactForm">
