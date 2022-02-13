@@ -1,152 +1,48 @@
 @include('navi')
-<style>
-    .split {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .container {
-        margin-inline: auto;
-        width: min(90%, 110rem);
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 120px;
-    }
-    .contact {
-        margin-bottom: 80px;
-    }
-
-    .contactForm {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .contactForm input {
-        font-size: 16px;
-        display: flex;
-        flex-direction: column;
-        width: 450px;
-        height: 35px;
-        margin-top: 10px;
-        background-color: #E0E0E0;
-        color: var(--color-gray);
-        outline: 0;
-        border: none;
-        padding: 10px;
-    }
-
-    .contactForm textarea {
-        padding: 10px;
-        font-size: 16px;
-        margin-top: 10px;
-        width: 450px;
-        background-color: #E0E0E0;
-        color: var(--color-gray);
-        outline: 0;
-        border: none;
-    }
-
-    .contactForm button {
-        font-size: 20px;
-        background-color: var(--color-gold);
-        color: var(--color-white);
-        border: none;
-        outline: 0;
-        width: 450px;
-        height: 35px;
-        text-align: center;
-        margin: 5px 0px 5px 0px;
-        cursor: pointer;
-    }
-
-    .contact-us {
-        text-align: center;
-        margin-top: 100px;
-    }
-
-    .contact-us h1 {
-        color: var(--color-black);
-        font-weight: 500;
-    }
-
-    .contact-us p {
-        font-size: 20px;
-        color: var(--color-gray);
-    }
-
-    .contact-us i {
-        color: var(--color-gold);
-        font-size: 40px;
-    }
-
-    @media (min-width:40em) {
-        .split {
-            flex-direction: row;
-        }
-
-        .split>* {
-            flex-basis: 100%;
-        }
-
-        .split>*+* {
-            margin-left: 2em;
-        }
-    }
-
-    @media (min-width: 560px) and (max-width: 1024px) {
-        .split {
-            flex-direction: column;
-        }
-
-        .split>* {
-            flex-basis: 100%;
-        }
-
-        .split>*+* {
-            margin-left: 2em;
-        }
-    }
-    @media screen and (max-width: 768px) {
-        .contactForm input {
-            font-size: 16px;
-            width: 350px;
-        }
-
-        .contactForm textarea {
-            width: 350px;
-            font-size: 16px;
-        }
-
-        .contactForm button {
-            width: 350px;
-            font-size: 16px;
-        }
-
-        .contact-us h1 {
-            font-size: 26px;
-        }
-
-        .contact-us p {
-            font-size: 18px;
-        }
-
-        .contact-us i {
-            font-size: 35px;
-        }
-    }
-</style>
-<div class="container">
-    <h1>{{ $product1->productName }}</h1>
-    <p>{{ $product1->productDesc }}</p>
-    <p>{{ $product1->productPrice }}</p>
-    <img src="{{ $product1->productImg }}" alt="Zdjęcie złotego stołu z rybkami">
+<link href="{{ asset('css/main.css') }}" media="all" rel="stylesheet" type="text/css" />
+<div class="container container-0">
+    <div class="split">
+        <div class="text text-0">
+            <h1>{{ $product1->productName }}</h1>
+            <p>{{ $product1->productDesc }}</p>
+            <h2>{{ $product1->productPrice }}</h2>
+            <button><a href="#product">Zobacz Ofertę &#x2193;</a></button>
+        </div>
+        <div class="picture container-0">
+            <img src="{{ $product1->productImg }}" alt="Zdjęcie złotego stołu z rybkami">
+        </div>
+    </div>
+</div>
+<div class="socials">
+    <i class="ri-facebook-fill"></i>
+    <i class="ri-instagram-fill"></i>
+    <i class="ri-twitter-fill"></i>
+</div>
+<div class="container" id="product">
+    <div class="split">
+        <div class="picture container-1">
+            <img src="{{ $product2->productImg }}" alt="Zdjęcie złotego stołu z rybkami">
+        </div>
+        <div class="text text-2">
+            <h1>{{ $product1->productName }}</h1>
+            <p>{{ $product1->productDesc }}</p>
+            <h2>{{ $product1->productPrice }}</h2>
+            <button><a>Dodaj do koszyka</a></button>
+        </div>
+    </div>
 </div>
 <div class="container">
-    <h1>{{ $product2->productName }}</h1>
-    <p>{{ $product2->productDesc }}</p>
-    <p>{{ $product2->productPrice }}</p>
-    <img src="{{ $product2->productImg }}" alt="Zdjęcie czarnego stołu z rybkami">
+    <div class="split">
+        <div class="text text-1">
+            <h1>{{ $product2->productName }}</h1>
+            <p>{{ $product2->productDesc }}</p>
+            <h2>{{ $product2->productPrice }}</h2>
+            <button><a>Dodaj do koszyka</a></button>
+        </div>
+        <div class="picture container-2">
+            <img src="{{ $product1->productImg }}" alt="Zdjęcie złotego stołu z rybkami">
+        </div>
+    </div>
 </div>
 <div class="container contact">
     <div class="split">
