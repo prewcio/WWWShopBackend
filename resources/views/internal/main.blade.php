@@ -1,5 +1,6 @@
 @include('navi')
 <link href="{{ asset('css/main.css') }}" media="all" rel="stylesheet" type="text/css" />
+<button onclick="topFunction()" id="btn-top"><i class="ri-arrow-up-line"></i></button>
 <div class="container container-0" data-aos="fade-left" data-aos-duration="2000">
     <div class="split">
         <div class="text text-0">
@@ -13,12 +14,12 @@
         </div>
     </div>
 </div>
-<div class="socials" data-aos="fade-left" data-aos-duration="2000">
+<div class="socials" data-aos="fade-left" data-aos-duration="1000">
     <i class="ri-facebook-fill"></i>
     <i class="ri-instagram-fill"></i>
     <i class="ri-twitter-fill"></i>
 </div>
-<div class="container" id="product" data-aos="fade-right" data-aos-duration="2000">
+<div class="container" id="product" data-aos="fade-right" data-aos-duration="1000">
     <div class="split">
         <div class="picture">
             <img src="{{ $product2->productImg }}" alt="Zdjęcie złotego stołu z rybkami">
@@ -31,7 +32,7 @@
         </div>
     </div>
 </div>
-<div class="container" data-aos="fade-left" data-aos-duration="2000">
+<div class="container" data-aos="fade-left" data-aos-duration="1000">
     <div class="split">
         <div class="text text-1">
             <h1>{{ $product2->productName }}</h1>
@@ -44,7 +45,7 @@
         </div>
     </div>
 </div>
-<div class="container contact" data-aos="fade-zoom" data-aos-duration="2000">
+<div class="container contact" data-aos="fade-zoom" data-aos-duration="1000">
     <div class="split">
         <div class="contactForm">
             <form action="{{ url('/sendMessage') }}" method="POST">
@@ -74,8 +75,3 @@
     </div>
 </div>
 @include('footer')
-
-
-<div data-aos="zoom-in" data-aos-duration="1000">
-
-</div>

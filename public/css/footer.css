@@ -1,19 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,700&display=swap');
-:root {
-    --color-gold: #DFBD69;
-    --color-black: #000;
-    --color-white: #FFF;
-    --color-gray: #8D8D8D;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-}
-
+/* Footer */
 footer{
     background-color: var(--color-gold);
     padding: 20px;
@@ -39,3 +24,4 @@ footer p {
         text-align: center;
     }
 }
+/* === */
