@@ -96,7 +96,13 @@
     <h1><a href="/">Website Logo</a></h1>
     <ul class="navul" id="navul">
         <li><a href="/cart"><i class="ri-shopping-cart-line"></i></a></li>
-        <p id="cart-total">2</p>
+        <p id="cart-total">
+            @if($cart)
+            {{ $cart->item1Quantity+$cart->item2Quantity }}
+            @else
+                0
+            @endif
+        </p>
         <li><a href="/account"><i class="ri-account-circle-fill"></i></a></li>
     </ul>
 </div>
