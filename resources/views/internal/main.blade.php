@@ -13,7 +13,7 @@
         </div>
     </div>
 </div>
-<div class="socials">
+<div class="socials" data-aos="fade-left" data-aos-duration="2000">
     <i class="ri-facebook-fill"></i>
     <i class="ri-instagram-fill"></i>
     <i class="ri-twitter-fill"></i>
