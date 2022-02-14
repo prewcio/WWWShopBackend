@@ -10,7 +10,7 @@ input[type=email]{
 input[type=email]::placeholder{
     color: black;
 }
-h1 {
+.content h1 {
     padding-top: 20px;
 }
 input[type=radio]{
