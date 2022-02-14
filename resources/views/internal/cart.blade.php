@@ -22,7 +22,7 @@
                 <div>
                     <h5>Razem: <strong><span name="final-price">{{ ($product1->productPrice*$cart->item1Quantity)+($product2->productPrice*$cart->item2Quantity)  }}</span> PLN</strong></h5>
                 </div>
-                <div class="space-btn"><a>Potwierdzenie</a></div>
+                <div class="space-btn"><a href="/order">Potwierdzenie</a></div>
             </div>
         </div>
 
