@@ -1,3 +1,6 @@
+body {
+    background-image: url("/img/blur2.png");
+}
 .content {
     margin: 100px 0px 0px 20px;
     color: var(--color-gold);
