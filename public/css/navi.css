@@ -28,6 +28,7 @@ i {
 }
 
 .navbar {
+    z-index: 9999;
     color: var(--color-white);
     width: 100%;
     display: flex;
