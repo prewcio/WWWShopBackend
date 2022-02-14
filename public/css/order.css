@@ -64,6 +64,9 @@ label input[type=radio]:checked ~ div{
     top: 150px;
     right: 30px;
 }
+.summary h3 {
+    font-weight: 600;
+}
 .sum-item{
     position: relative;
     width: 100%;
@@ -101,4 +104,19 @@ label input[type=radio]:checked ~ div{
 }
 .sum-item:nth-last-of-type(2) h3{
     font-weight: 400;
+}
+@media (min-width: 560px) and (max-width: 1024px) {
+    .summary{
+        position: static;
+        margin-top: 20px;
+        margin-bottom: 120px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .summary{
+        position: static;
+        margin-top: 20px;
+        margin-bottom: 120px;
+        width: 450px;
+    }
 }
