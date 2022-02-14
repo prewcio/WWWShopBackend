@@ -10,7 +10,7 @@ input[type=email]{
 input[type=email]::placeholder{
     color: black;
 }
-h1 {
+.content h1 {
     padding-top: 20px;
 }
 input[type=radio]{
@@ -55,4 +55,50 @@ label input[type=radio]:checked ~ div{
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.summary{
+    position: absolute;
+    border: 1px #000 solid;
+    width: 600px;
+    top: 150px;
+    right: 30px;
+}
+.sum-item{
+    position: relative;
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px #000 solid;
+}
+.sum-item:last-of-type{
+    border-bottom: none;
+}
+.item-info {
+    position: relative;
+    width: 600px;
+    display: table-cell;
+    padding: 5px;
+}
+.item-info img {
+    float: left;
+}
+.item-info h3 {
+    padding-left: 10px;
+    font-weight: 400
+}
+.item-info p {
+    padding-left: 10px;
+    padding-top: 20px;
+    font-size: 20px;
+}
+.item-info .quan, .sum-item p {
+    color: #7e7d7d;
+}
+.price {
+    position: absolute;
+    right: 15px;
+    color: #000;
+}
+.sum-item:nth-last-of-type(2) h3{
+    font-weight: 400;
 }

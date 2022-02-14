@@ -36,6 +36,33 @@ if (remItem2) {
     }
 }
 
+// window.onclick = e => {
+//     console.log(e.target);  // to get the element
+//     console.log(e.target.tagName);  // to get the element tag name alone
+// }
+
+if(document.getElementById('dotpay')){
+    document.getElementById('dotpay').onclick = function () {
+        document.getElementById('payment-type').innerText = "Płatność online - dotpay";
+    }
+}
+if(document.getElementById('payu')){
+    document.getElementById('payu').onclick = function () {
+        document.getElementById('payment-type').innerText = "Płatność online - PayU";
+    }
+}
+
+if(document.getElementById('kurier')){
+    document.getElementById('kurier').onclick = function () {
+        document.getElementById('delivery-type').innerText = "Kurier - InPost";
+    }
+}
+if(document.getElementById('osobisty')){
+    document.getElementById('osobisty').onclick = function () {
+        document.getElementById('delivery-type').innerText = "Odbiór Osobisty";
+    }
+}
+
 btntop = document.getElementById("btn-top");
 window.onscroll = function () { scrollFunction() };
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\Customer;
+use App\Product;
 use DB;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -17,9 +18,19 @@ class OrdersController extends BaseController
         $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
         $customerID = $customer->id;
         $cart = Cart::where('customerID', $customerID)->first();
-        return view('internal.order', [
-            'cart' => $cart
-        ]);
+        if($cart){
+            $items = Product::all();
+            return view('internal.order', [
+                'product1'=>$items->first(),
+                'product2'=>$items->last(),
+                'cart' => $cart
+            ]);
+        } else {
+            return view('internal.order', [
+               'cart'=>$cart
+            ]);
+        }
+
     }
 
     public function order(){
