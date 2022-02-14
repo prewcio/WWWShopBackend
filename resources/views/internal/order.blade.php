@@ -9,17 +9,37 @@
         <h1 class="deliver">Dostawa</h1>
         <div class="delivery">
             <label for="kurier">
-            <input type="radio" name="dostawa" id="kurier" value="kurier" required><span>Kurier Inpost</span></label>
+            <input type="radio" name="dostawa" id="kurier" value="kurier" required>
+                <div class="item">
+                    <span>Kurier - InPost</span>
+                    <i class="ri-truck-line"></i>
+                </div>
+            </label>
             <label for="osobisty">
-            <input type="radio" name="dostawa" id="osobisty" value="osobisty" required><span>Odbiór Osobisty</span></label>
+            <input type="radio" name="dostawa" id="osobisty" value="osobisty" required>
+                <div class="item">
+                    <span>Odbiór Osobisty</span>
+                    <i class="ri-home-2-line"></i>
+                </div>
+            </label>
         </div>
 
         <h1 class="payment">Płatność</h1>
         <div class="pay">
             <label for="dotpay">
-            <input type="radio" name="payment" id="dotpay" value="dotpay" required><span>Płatność Online - dotpay</span></label>
+            <input type="radio" name="payment" id="dotpay" value="dotpay" required>
+                <div class="item">
+                    <span>Płatność online</span>
+                    <img src="{{ asset('img/dotpay.png') }}" alt="dotpay" height="25px">
+                </div>
+            </label>
             <label for="payu">
-            <input type="radio" name="payment" id="payu" value="payu" required><span>Płatność Online - PayU</span></label>
+            <input type="radio" name="payment" id="payu" value="payu" required>
+                <div class="item">
+                    <span>Płatność online</span>
+                    <img src="{{ asset('img/payu.png') }}" alt="PayU" height="35px">
+                </div>
+            </label>
         </div>
     </form>
 </div>

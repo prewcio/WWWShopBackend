@@ -3,28 +3,53 @@
 }
 input[type=email]{
     padding: 15px;
+    width: 300px;
+    color: black;
+    font-size:16px;
+}
+input[type=email]::placeholder{
+    color: black;
 }
 h1 {
     padding-top: 20px;
 }
 input[type=radio]{
     visibility: hidden;
+    width: 300px;
 }
 label{
     position: relative;
-    width: 500px;
-    height: 100px;
+    top: 20px;
+    width: 300px;
 }
-label input[type=radio] ~ span{
+label input[type=radio] ~ div{
+    width: 300px;
     transition: 0.5s all;
     padding: 15px;
     border: 1px #000 solid;
     color:black;
 }
-label input[type=radio]:checked ~ span{
+label input[type=radio]:checked ~ div{
     transition: 0.5s all;
-    border: 1px limegreen solid;
+    background: #96f566;
 }
 .delivery {
     position: relative !important;
+    margin-top: -30px;
+    height: 150px;
+}
+.pay {
+    /*margin-top: 10px;*/
+    margin-top: -30px;
+    height: 150px;
+}
+.item{
+    position: relative;
+    width: 300px;
+}
+.item i, .item img{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
