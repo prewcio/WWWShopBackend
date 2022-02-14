@@ -14,9 +14,6 @@
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
-body {
-    background-image: url("/img/blur2.png");
-}
 /* === */
 /* btn */
 #btn-top {

@@ -23,6 +23,8 @@ Route::get('/addItem1',"ItemsController@item1Add");
 Route::get('/remItem1',"ItemsController@item1Rem");
 Route::get('/addItem2',"ItemsController@item2Add");
 Route::get('/remItem2',"ItemsController@item2Rem");
+Route::get('/order',"OrdersController@index");
+Route::get('/orderSent',"OrdersController@order");
 
 //POST
 Route::post('/sendMessage','MessageController@send');
