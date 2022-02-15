@@ -15,23 +15,23 @@ use Illuminate\Support\Facades\Redirect;
 class OrdersController extends BaseController
 {
     public function index(){
-        $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
-        $cart = Cart::where('customerID', $customerID)->first();
-        if($cart){
-            $items = Product::all();
-            return view('internal.order', [
-                'product1'=>$items->first(),
-                'product2'=>$items->last(),
-                'cart' => $cart
-            ]);
-        } else {
-            return view('internal.order', [
-               'cart'=>$cart
-            ]);
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $_COOKIE['sessionID']) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
         }
-
+        return view('internal.order',[
+            'items'=>$items,
+            'itemsQuantity'=>$itQua,
+            'cart'=>$cart
+        ]);
     }
-
     public function order(){
         return Redirect::back();
     }

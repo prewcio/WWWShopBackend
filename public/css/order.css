@@ -25,6 +25,9 @@ label{
     top: 20px;
     width: 300px;
 }
+.content i {
+    font-size: 32px;
+}
 label input[type=radio] ~ div{
     width: 300px;
     transition: 0.5s all;
@@ -96,6 +99,10 @@ label input[type=radio]:checked ~ div{
     padding-left: 10px;
     padding-top: 20px;
     font-size: 20px;
+}
+.quan {
+    padding-left: 10px;
+    font-size: 18px;
 }
 .item-info .quan, .sum-item p {
     color: #7e7d7d;

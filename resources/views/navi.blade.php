@@ -17,15 +17,15 @@
             <li class="nav-item"><a href="" class="close-link">Kontakt</a></li>
         </ul>
     </div>
+    <div class="links-2">
+        <a href="/cart" id="cartNumber"><i class="ri-shopping-cart-line"></i>
+            <p id="cart-total">0</p>
+        </a>
+        <a href="/account"><i class="ri-account-circle-fill"></i></a>
+    </div>
     <div class="hamburger-menu">
         <span class="bar-menu"></span>
         <span class="bar-menu"></span>
         <span class="bar-menu"></span>
-    </div>
-    <div class="links-2">
-        <a href="/cart"><i class="ri-shopping-cart-line"></i></a>
-        <p id="cart-total">
-        </p>
-        <a href="/account"><i class="ri-account-circle-fill"></i></a>
     </div>
 </div>

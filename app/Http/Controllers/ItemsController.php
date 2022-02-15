@@ -86,13 +86,16 @@ class ItemsController extends BaseController
             $cart->itemQuantity = 1;
             $cart->save();
         }
+        return Redirect::back();
     }
     public function remFromCart($id){
         $cart = Cart::where('sessionID',$_COOKIE['sessionID'])
             ->where('itemID',$id)->first();
         if($cart) {
-            $cart->itemQuantity = $cart->itemQuantity-1;
-            $cart->save();
+            if($cart->itemQuantity>0) {
+                $cart->itemQuantity = $cart->itemQuantity - 1;
+                $cart->save();
+            }
         } else {
             return Redirect::back()->with('cantRemove',1);
         }

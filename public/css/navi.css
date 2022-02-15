@@ -24,6 +24,12 @@
 }
 .navbar h1 {
     font-weight: 500;
+    width: 230px;
+}
+.links-2 {
+    text-align: right;
+    width: 230px;
+    overflow: visible !important;
 }
 .navbar i {
     font-size: 40px;
@@ -59,9 +65,18 @@
     text-decoration: none;
     color: var(--color-white);
 }
-
+#cartNumber {
+    position: relative;
+}
+#cartNumber p {
+    position: absolute;
+    left: 85%;
+    top: -100%;
+    transform: translateY(-50%) translateX(-50%);
+}
 #cart-total {
     position: absolute;
+    transform: translateX(180px);
     top: 0;
     display: block;
     text-align: center;
