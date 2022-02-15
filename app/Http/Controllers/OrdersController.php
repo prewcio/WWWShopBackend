@@ -16,7 +16,6 @@ class OrdersController extends BaseController
 {
     public function index(){
         $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
-        $customerID = $customer->id;
         $cart = Cart::where('customerID', $customerID)->first();
         if($cart){
             $items = Product::all();

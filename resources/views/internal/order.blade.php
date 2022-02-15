@@ -45,26 +45,12 @@
         </form>
     </div>
     <div class="summary">
-        @if($cart)
-            @if($cart->item1Quantity>0)
-                <div class="sum-item">
-                        <div class="item-info">
-                            <img src="{{ $product1->productImg }}" alt="Stół" height="100px">
-                            <h3>{{ $product1->productName }}</h3>
-                            <p><span class="quan">{{ $cart->item1Quantity }} szt.</span><span class="price">{{ $cart->item1Quantity*$product1->productPrice }} zł</span></p>
-                        </div>
-                </div>
-            @endif
-            @if($cart->item2Quantity>0)
-                <div class="sum-item">
-
-                        <div class="item-info">
-                            <img src="{{ $product2->productImg }}" alt="Stół" height="100px">
-                            <h3>{{ $product2->productName }}</h3>
-                            <p><span class="quan">{{ $cart->item2Quantity }} szt.</span><span class="price">{{ $cart->item2Quantity*$product2->productPrice }} zł</span></p>
-                        </div>
-                </div>
-            @endif
+        @if($cart!=null)
+            @foreach($cartItems as $item)
+                <p>{{ $item->productName }}</p>
+            @endforeach
+        @else
+            <p>Brak produktów w koszyku</p>
         @endif
         <div class="sum-item">
             <h3>Sposób płatności:</h3>
@@ -75,7 +61,7 @@
             <p>Gdy zaksięgujemy płatność.<br>Potwierdzenie wysyłki dostaniesz mailem</p>
         </div>
         <div class="sum-item">
-            <h3>Wartość koszyka: {{ ($cart->item2Quantity*$product2->productPrice) + ($cart->item1Quantity*$product1->productPrice) }} zł</h3>
+            <h3>Wartość koszyka: 0 zł</h3>
             <h3>Dostawa: 0,00 zł</h3>
         </div>
         <div class="sum-item">
