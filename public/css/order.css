@@ -1,3 +1,6 @@
+body {
+    background-image: url("/img/blur2.png");
+}
 .content {
     margin-left: 20px;
 }
