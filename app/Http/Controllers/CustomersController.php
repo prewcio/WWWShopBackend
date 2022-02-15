@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Redirect;
 class CustomersController extends BaseController
 {
     public function list(Request $request){
-        if(isset($_COOKIE['sessionID'])) {
-            $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+        $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+            if($customer){
             $customerID = $customer->id;
             $cart = Cart::where('customerID', $customerID)->first();
             return view('internal.account', [
@@ -34,7 +34,8 @@ class CustomersController extends BaseController
     }
 
     public function loginIndex(Request $request){
-        if(!isset($_COOKIE['sessionID'])) {
+        $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+        if(!$customer) {
             $cart = 0;
             return view('internal.login', [
                 'cart' => $cart
@@ -45,7 +46,8 @@ class CustomersController extends BaseController
     }
 
     public function registerIndex(Request $request){
-        if(!isset($_COOKIE['sessionID'])) {
+        $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+        if(!$customer) {
             $cart = 0;
             return view('internal.register', [
                 'cart' => $cart
@@ -55,16 +57,22 @@ class CustomersController extends BaseController
         }
     }
 
-    public function registerUser(Request $request){
-        if($request->input('password')==$request->input('passwordVerify')){
-            $customer = new Customer();
-            $customer->firstName = $request->input('firstName');
-            $customer->lastName = $request->input('lastName');
-            $customer->email = strtolower($request->input('email'));
-            $customer->password = password_hash($request->input('password'),PASSWORD_BCRYPT);
-            $customer->sessionID = "";
-            $customer->save();
-            return Redirect::to('/login')->with('regSuccess',1);
+    public function registerUser(Request $request)
+    {
+        $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+        if (!$customer) {
+            if ($request->input('password') == $request->input('passwordVerify')) {
+                $customer = new Customer();
+                $customer->firstName = $request->input('firstName');
+                $customer->lastName = $request->input('lastName');
+                $customer->email = strtolower($request->input('email'));
+                $customer->password = password_hash($request->input('password'), PASSWORD_BCRYPT);
+                $customer->sessionID = "";
+                $customer->save();
+                return Redirect::to('/login')->with('regSuccess', 1);
+            }
+        } else {
+            return Redirect::to('/account');
         }
     }
 
