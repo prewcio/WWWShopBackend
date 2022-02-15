@@ -1,54 +1,38 @@
+body {
+    background-image: url("/img/blur2.png");
+}
 .content {
-    margin-top: 100px;
+    margin-top: 120px;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     color: var(--color-white);
-    display: flex;
-    justify-content: center;
 }
-
 .content h5 {
     font-weight: 600;
     font-size: 1.2rem;
 }
-
-.content .inputs {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-black);
-    width: 400px;
-    height: 50px;
-    color: var(--color-black);
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-    margin-top: 10px;
-}
-
 .content .margins {
     margin-left: 5px;
 }
-
 .cart-row {
     display: flex;
     align-items: flex-stretch;
     padding-bottom: 10px;
     margin-bottom: 10px;
     border-bottom: 1px solid #ececec;
-
 }
-
 .product {
     border-radius: 0 0 4px 4px;
 }
-
 .box-element {
     box-shadow: #dfbe69c2 0 0 16px;
     background-color: var(--color-gold);
     border-radius: 4px;
     padding: 10px;
-    width: 70rem;
+}
+.product {
+    border-radius: 0 0 4px 4px;
 }
 .quantity {
     display: inline-block;
@@ -91,20 +75,10 @@
 .row-image {
     width: 100px;
 }
-@media (min-width: 768px) and (max-width: 1400px) {
-    .row {
-        margin-bottom: 120px;
-    }
-
-    .blur img {
-        height: 100%;
-    }
-
-    .box-element {
-        width: 47rem;
-    }
-}
 @media screen and (max-width: 768px) {
+    .content {
+        width: 90%;
+    }
     .cart-row p {
         font-size: 14px;
     }
@@ -117,44 +91,6 @@
         margin-left: 0px;
         margin-right: 0px;
     }
-
-    .cart-row {
-        display: flex;
-        align-items: flex-stretch;
-        padding-bottom: 10px;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #ececec;
-    }
-
-    .product {
-        border-radius: 0 0 4px 4px;
-    }
-
-    .box-element {
-        box-shadow: #dfbe69c2 0 0 16px;
-        background-color: var(--color-gold);
-        border-radius: 4px;
-        padding: 10px;
-        width: 30rem;
-    }
-    .quantity {
-        display: inline-block;
-        font-weight: 700;
-        padding-right: 10px;
-    }
-
-    .chg-quantity {
-        width: 12px;
-        cursor: pointer;
-        display: block;
-        margin-top: 5px;
-        transition: .1s;
-    }
-
-    .chg-quantity:hover {
-        opacity: .6;
-    }
-
     .space {
         display: flex;
         justify-content: space-between;

@@ -1,0 +1,132 @@
+body {
+    background-image: url("/img/blur2.png");
+}
+.content {
+    margin-left: 20px;
+}
+input[type=email]{
+    padding: 15px;
+    width: 300px;
+    color: black;
+    font-size:16px;
+}
+input[type=email]::placeholder{
+    color: black;
+}
+.content h1 {
+    padding-top: 20px;
+}
+input[type=radio]{
+    visibility: hidden;
+    width: 300px;
+}
+label{
+    position: relative;
+    top: 20px;
+    width: 300px;
+}
+.content i {
+    font-size: 32px;
+}
+label input[type=radio] ~ div{
+    width: 300px;
+    transition: 0.5s all;
+    padding: 15px;
+    border: 1px #000 solid;
+    color:black;
+}
+label input[type=radio]:checked ~ div{
+    transition: 0.5s all;
+    background: #96f566;
+}
+.delivery {
+    position: relative !important;
+    margin-top: -30px;
+    height: 150px;
+    width: 300px;
+}
+.pay {
+    /*margin-top: 10px;*/
+    margin-top: -30px;
+    height: 150px;
+    width: 300px;
+}
+.item{
+    position: relative;
+    width: 300px;
+    cursor: pointer;
+}
+.item i, .item img{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.summary{
+    position: absolute;
+    border: 1px #000 solid;
+    width: 600px;
+    top: 150px;
+    right: 30px;
+}
+.summary h3 {
+    font-weight: 600;
+}
+.sum-item{
+    position: relative;
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px #000 solid;
+}
+.sum-item:last-of-type{
+    border-bottom: none;
+}
+.item-info {
+    position: relative;
+    width: 600px;
+    display: table-cell;
+    padding: 5px;
+}
+.item-info img {
+    float: left;
+}
+.item-info h3 {
+    padding-left: 10px;
+    font-weight: 400
+}
+.item-info p {
+    padding-left: 10px;
+    padding-top: 20px;
+    font-size: 20px;
+}
+.quan {
+    padding-left: 10px;
+    font-size: 18px;
+}
+.item-info .quan, .sum-item p {
+    color: #7e7d7d;
+}
+.price {
+    position: absolute;
+    right: 15px;
+    color: #000;
+}
+.sum-item:nth-last-of-type(2) h3{
+    font-weight: 400;
+}
+@media (min-width: 560px) and (max-width: 1024px) {
+    .summary{
+        position: static;
+        margin-top: 20px;
+        margin-bottom: 120px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .summary{
+        position: static;
+        margin-top: 20px;
+        margin-bottom: 120px;
+        width: 450px;
+    }
+}

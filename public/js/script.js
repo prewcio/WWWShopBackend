@@ -1,38 +1,47 @@
-table1 = document.getElementById('Table1');
-table2 = document.getElementById('Table2');
-addItem1 = document.getElementById('addItem1');
-addItem2 = document.getElementById('addItem2');
-remItem1 = document.getElementById('remItem1');
-remItem2 = document.getElementById('remItem2');
+// window.onclick = e => {
+//     console.log(e.target);  // to get the element
+//     console.log(e.target.tagName);  // to get the element tag name alone
+// }
 
-if (table1) {
-    document.getElementById('Table1').onclick = function () {
-        location.href = '/addItem1'
+if (document.getElementById('dotpay')) {
+    document.getElementById('dotpay').onclick = function () {
+        document.getElementById('payment-type').innerText = "Płatność online - dotpay";
     }
 }
-if (table2) {
-    document.getElementById('Table2').onclick = function () {
-        location.href = '/addItem2'
+if (document.getElementById('payu')) {
+    document.getElementById('payu').onclick = function () {
+        document.getElementById('payment-type').innerText = "Płatność online - PayU";
     }
 }
-if (addItem1) {
-    document.getElementById('addItem1').onclick = function () {
-        location.href = '/addItem1'
+
+if (document.getElementById('kurier')) {
+    document.getElementById('kurier').onclick = function () {
+        document.getElementById('delivery-type').innerText = "Kurier - InPost";
+        document.getElementById('delPrice').innerText=12.99;
+        var value = (parseFloat(document.getElementById('cartPrice').innerText.replace(',',''))+12.99).toFixed(2);
+        var str = value.toString();
+        if(str.length>6){
+            var ok = str.slice(0,1)+","+str.slice(1);
+            console.log(ok);
+            document.getElementById('finalPrice').innerText = ok;
+        } else {
+            document.getElementById('finalPrice').innerText = str;
+        }
     }
 }
-if (addItem2) {
-    document.getElementById('addItem2').onclick = function () {
-        location.href = '/addItem2'
-    }
-}
-if (remItem1) {
-    document.getElementById('remItem1').onclick = function () {
-        location.href = '/remItem1'
-    }
-}
-if (remItem2) {
-    document.getElementById('remItem2').onclick = function () {
-        location.href = '/remItem2'
+if (document.getElementById('osobisty')) {
+    document.getElementById('osobisty').onclick = function () {
+        document.getElementById('delivery-type').innerText = "Odbiór Osobisty";
+        document.getElementById('delPrice').innerText=0.00
+        var value = (parseFloat(document.getElementById('cartPrice').innerText.replace(',',''))+0.00).toFixed(2);
+        var str = value.toString();
+        if(str.length>6){
+            var ok = str.slice(0,1)+","+str.slice(1);
+            console.log(ok);
+            document.getElementById('finalPrice').innerText = ok;
+        } else {
+            document.getElementById('finalPrice').innerText = str;
+        }
     }
 }
 
@@ -48,4 +57,24 @@ function scrollFunction() {
 }
 function topFunction() {
     window.scrollTo(0, 0);
+}
+
+const HamburgerMenu = document.querySelector(".hamburger-menu");
+const NavMenu = document.querySelector(".nav-menu");
+
+HamburgerMenu.addEventListener("click", MenuMobile);
+
+function MenuMobile() {
+    HamburgerMenu.classList.toggle("active");
+    NavMenu.classList.toggle("active");
+}
+
+
+const CloseLink = document.querySelectorAll(".close-link");
+
+CloseLink.forEach(n => n.addEventListener("click", CloseMenu));
+
+function CloseMenu() {
+    HamburgerMenu.classList.remove("active");
+    NavMenu.classList.remove("active");
 }
