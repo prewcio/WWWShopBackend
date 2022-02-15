@@ -8,10 +8,24 @@
 ?>
 <div class="navbar">
     <h1><a href="/">Website Logo</a></h1>
-    <ul class="navul" id="navul">
-        <li><a href="/cart"><i class="ri-shopping-cart-line"></i></a></li>
+    <div class="links">
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="" class="close-link" id="active">Home</a></li>
+            <li class="nav-item"><a href="" class="close-link">Kategorie</a></li>
+            <li class="nav-item"><a href="" class="close-link">O nas</a></li>
+            <li class="nav-item"><a href="" class="close-link">Regulamin</a></li>
+            <li class="nav-item"><a href="" class="close-link">Kontakt</a></li>
+        </ul>
+    </div>
+    <div class="hamburger-menu">
+        <span class="bar-menu"></span>
+        <span class="bar-menu"></span>
+        <span class="bar-menu"></span>
+    </div>
+    <div class="links-2">
+        <a href="/cart"><i class="ri-shopping-cart-line"></i></a>
         <p id="cart-total">
         </p>
-        <li><a href="/account"><i class="ri-account-circle-fill"></i></a></li>
-    </ul>
+        <a href="/account"><i class="ri-account-circle-fill"></i></a>
+    </div>
 </div>

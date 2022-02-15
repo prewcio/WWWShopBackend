@@ -7,7 +7,7 @@
         <p>{{ $customer->firstName }} {{ $customer->lastName }}</p>
         <h1>Adres E-Mail</h1>
         <p>{{ $customer->email }}</p>
-        <a href="/logout">Wyloguj Zjeba</a>
+        <a href="/logout">Wyloguj się</a>
     </div>
 @endif
 @include('footer')
