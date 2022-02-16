@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\Customer;
+use App\Product;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -34,11 +35,25 @@ class CustomersController extends BaseController
     }
 
     public function loginIndex(Request $request){
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $_COOKIE['sessionID']) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
+        }
+
         $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
         if(!$customer) {
             $cart = 0;
-            return view('internal.login', [
-                'cart' => $cart
+            return view('internal.login',[
+                'items'=>$items,
+                'itemsQuantity'=>$itQua,
+                'cart'=>$cart
             ]);
         } else {
             return Redirect::to('/account');
@@ -46,11 +61,24 @@ class CustomersController extends BaseController
     }
 
     public function registerIndex(Request $request){
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $_COOKIE['sessionID']) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
+        }
         $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
         if(!$customer) {
             $cart = 0;
-            return view('internal.register', [
-                'cart' => $cart
+            return view('internal.register',[
+                'items'=>$items,
+                'itemsQuantity'=>$itQua,
+                'cart'=>$cart
             ]);
         } else {
             return Redirect::to('/account');
