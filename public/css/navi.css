@@ -42,6 +42,7 @@ header a {
     transition: 0.3s;
 }
 .nav-item .active {
+    transition: 0.5s color;
     color: red;
 }
 .bar-menu {
