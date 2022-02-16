@@ -21,6 +21,7 @@ Route::get('/logout',"CustomersController@logout");
 Route::get('/cart',"ItemsController@cart");
 Route::get('/statute',"ItemsController@statue");
 Route::get('/about',"ItemsController@about");
+Route::get('/contact',"ItemsController@contact");
 Route::get('/category',"ItemsController@category");
 Route::get('/order',"OrdersController@index");
 Route::get('/orderSent',"OrdersController@order");
