@@ -6,18 +6,20 @@
 <?php
     setcookie('sessionID',csrf_token(), time()+(86400*30));
 ?>
-<div class="navbar">
-    <h1><a href="/">Website Logo</a></h1>
-    <div class="links">
+<header>
+    <div class="logo">
+    <h1><a href="">Logo</a></h1>
+    </div>
+    <nav>
         <ul class="nav-menu">
-            <li class="nav-item"><a href="" class="close-link" id="active">Home</a></li>
+            <li class="nav-item"><a href="" class="close-link">Home</a></li>
             <li class="nav-item"><a href="" class="close-link">Kategorie</a></li>
             <li class="nav-item"><a href="" class="close-link">O nas</a></li>
             <li class="nav-item"><a href="" class="close-link">Regulamin</a></li>
             <li class="nav-item"><a href="" class="close-link">Kontakt</a></li>
         </ul>
-    </div>
-    <div class="links-2">
+    </nav>
+    <div class="links">
         <a href="/cart" id="cartNumber"><i class="ri-shopping-cart-line"></i>
             <p id="cart-total">0</p>
         </a>
@@ -28,4 +30,4 @@
         <span class="bar-menu"></span>
         <span class="bar-menu"></span>
     </div>
-</div>
+</header>

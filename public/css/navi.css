@@ -15,31 +15,31 @@
     scroll-behavior: smooth;
 }
 /* === */
-.nav-item a {
-    font-weight: 600;
-}
-.navbar a {
-    color: var(--color-white);
-    text-decoration: none;
-}
-.navbar h1 {
-    font-weight: 500;
-    width: 230px;
-}
-.links-2 {
-    text-align: right;
-    width: 230px;
-    overflow: visible !important;
-}
-.navbar i {
-    font-size: 40px;
-}
-.navbar {
-    background-color: var(--color-gold);
+header {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 30px;
+    background-color: var(--color-gold);
+}
+header a {
+    text-decoration: none;
+    color: var(--color-white);
+}
+.nav-menu {
+    list-style: none;
+}
+.nav-menu li {
+    display: inline-block;
+    padding: 0 15px;
+}
+.nav-menu li a{
+    color: var(--color-white);
+    transition: 0.3s;
 }
 .bar-menu {
     display: block;
@@ -53,31 +53,13 @@
 .hamburger-menu {
     display: none;
 }
-.nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.nav-item {
-    margin-left: 10px;
-}
-.nav-item a {
-    text-decoration: none;
-    color: var(--color-white);
-}
-#cartNumber {
-    position: relative;
-}
-#cartNumber p {
-    position: absolute;
-    left: 85%;
-    top: -100%;
-    transform: translateY(-50%) translateX(-50%);
+.links i {
+    font-size: 30px;
 }
 #cart-total {
     position: absolute;
-    transform: translateX(180px);
-    top: 0;
+    transform: translateX(20px);
+    top: 5px;
     display: block;
     text-align: center;
     color: #fff;
@@ -88,30 +70,48 @@
     font-size: 14px;
 }
 @media only screen and (max-width: 768px) {
-    .navbar i {
-        font-size: 30px;
+    #cart-total {
+        position: absolute;
+        transform: translateX(20px);
+        top: -5px;
+        display: block;
+        text-align: center;
+        color: #fff;
+        background-color: red;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        font-size: 14px;
+    }
+    .links {
+        position: absolute;
+        right: 80px;
+    }
+    .hamburger-menu {
+        position: absolute;
+        right: 30px;
     }
     .nav-menu {
         position: absolute;
         left: -100%;
         top: 3.7rem;
-        flex-direction: column;
         background-color: var(--color-gold);
         width: 100%;
         text-align: center;
         transition: 0.3s;
         z-index: 999;
-        font-size: 18px;
+        font-size: 15px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .nav-menu.active {
         left: 0;
     }
-
-    .nav-item {
-        margin: 1.5rem 0;
+    .nav-menu li {
+        display: inline-block;
+        padding: 10px 5px;
     }
-
     .hamburger-menu {
         display: block;
         cursor: pointer;
