@@ -13,7 +13,7 @@
             <li class="nav-item"><a href="/category" class="close-link">Kategorie</a></li>
             <li class="nav-item"><a href="/about" class="close-link">O nas</a></li>
             <li class="nav-item"><a href="/statute" class="close-link">Regulamin</a></li>
-            <li class="nav-item"><a href="/" class="close-link">Kontakt</a></li>
+            <li class="nav-item"><a href="/contact" class="close-link">Kontakt</a></li>
         </ul>
     </nav>
     <div class="links">
