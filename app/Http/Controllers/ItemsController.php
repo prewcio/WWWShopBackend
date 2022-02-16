@@ -23,6 +23,87 @@ class ItemsController extends BaseController
         ]);
     }
 
+    public function category(){
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $ciastko) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
+        }
+        return view('internal.category',[
+            'items'=>$items,
+            'itemsQuantity'=>$itQua,
+            'cart'=>$cart
+        ]);
+    }
+
+    public function about(){
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $ciastko) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
+        }
+        return view('internal.about',[
+            'items'=>$items,
+            'itemsQuantity'=>$itQua,
+            'cart'=>$cart
+        ]);
+    }
+
+    public function statue(){
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $ciastko) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
+        }
+        return view('internal.statute',[
+            'items'=>$items,
+            'itemsQuantity'=>$itQua,
+            'cart'=>$cart
+        ]);
+    }
+
     public function items(){
         $ciastko = "";
         if(!isset($_COOKIE['sessionID'])){
