@@ -23,27 +23,128 @@ class ItemsController extends BaseController
         ]);
     }
 
-    public function items(){
-        if(isset($_COOKIE['sessionID'])) {
-            $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
-            $cart = Cart::where('sessionID', $_COOKIE['sessionID'])->first();
+    public function category(){
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
         } else {
-            $cart = 0;
+            $ciastko = $_COOKIE['sessionID'];
         }
-        $items = Product::all();
-        return view('internal.main', [
-            'product1'=>$items->first(),
-            'product2'=>$items->last(),
-            'cart' => $cart
-        ]);
-    }
 
-    public function cart(){
         $carts = Cart::all();
         $items = array();
         $itQua = array();
         foreach($carts as $cart) {
-            if ($cart->sessionID == $_COOKIE['sessionID']) {
+            if ($cart->sessionID == $ciastko) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
+        }
+        return view('internal.category',[
+            'items'=>$items,
+            'itemsQuantity'=>$itQua,
+            'cart'=>$cart
+        ]);
+    }
+
+    public function about(){
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $ciastko) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
+        }
+        return view('internal.about',[
+            'items'=>$items,
+            'itemsQuantity'=>$itQua,
+            'cart'=>$cart
+        ]);
+    }
+
+    public function statue(){
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $ciastko) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
+        }
+        return view('internal.statute',[
+            'items'=>$items,
+            'itemsQuantity'=>$itQua,
+            'cart'=>$cart
+        ]);
+    }
+
+    public function items(){
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $ciastko) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
+        }
+        return view('internal.main',[
+            'items'=>$items,
+            'itemsQuantity'=>$itQua,
+            'cart'=>$cart
+        ]);
+    }
+
+    public function cart(){
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $ciastko) {
                 $items[] = Product::where('id', $cart->itemID)->first();
                 $itQua[] = $cart->itemQuantity;
             } else {
@@ -68,14 +169,22 @@ class ItemsController extends BaseController
     }
 
     public function addToCart($id){
-        $cart = Cart::where('sessionID',$_COOKIE['sessionID'])
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
+        $cart = Cart::where('sessionID',$ciastko)
             ->where('itemID',$id)->first();
         if($cart) {
             $cart->itemQuantity = $cart->itemQuantity+1;
             $cart->save();
         } else {
             $cartID = $this->generateRandomString();
-            $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+            $customer = Customer::where('sessionID', $ciastko)->first();
             $cart=new Cart();
             if($customer) {
                 $cart->customerID = $customer->id;
@@ -89,7 +198,15 @@ class ItemsController extends BaseController
         return Redirect::back();
     }
     public function remFromCart($id){
-        $cart = Cart::where('sessionID',$_COOKIE['sessionID'])
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
+        $cart = Cart::where('sessionID',$ciastko)
             ->where('itemID',$id)->first();
         if($cart) {
             if($cart->itemQuantity>0) {

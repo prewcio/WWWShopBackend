@@ -1,7 +1,3 @@
-// window.onclick = e => {
-//     console.log(e.target);  // to get the element
-//     console.log(e.target.tagName);  // to get the element tag name alone
-// }
 
 if (document.getElementById('dotpay')) {
     document.getElementById('dotpay').onclick = function () {
@@ -45,7 +41,18 @@ if (document.getElementById('osobisty')) {
     }
 }
 
-btntop = document.getElementById("btn-top");
+var menu = $('.nav-menu');
+if(menu.length) {
+    let links = menu.find('a');
+    $(links).each(function (index) {
+        if(this.href == window.location.href){
+            console.log(index);
+            $(links[index]).addClass('active');
+        }
+    })
+}
+
+var btntop = document.getElementById("btn-top");
 window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {

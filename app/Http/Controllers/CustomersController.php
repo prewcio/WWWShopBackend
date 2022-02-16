@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\Customer;
+use App\Product;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -15,13 +16,34 @@ use Illuminate\Support\Facades\Redirect;
 class CustomersController extends BaseController
 {
     public function list(Request $request){
-        $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
+        $customer = Customer::where('sessionID', $ciastko)->first();
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $ciastko) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
+        }
             if($customer){
             $customerID = $customer->id;
             $cart = Cart::where('customerID', $customerID)->first();
             return view('internal.account', [
-                'customer' => $customer,
-                'cart' => $cart
+                'items'=>$items,
+                'customer'=>$customer,
+                'itemsQuantity'=>$itQua,
+                'cart'=>$cart
             ]);
         } else {
             return Redirect::to('/login');
@@ -34,11 +56,33 @@ class CustomersController extends BaseController
     }
 
     public function loginIndex(Request $request){
-        $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $ciastko) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
+        }
+
+        $customer = Customer::where('sessionID', $ciastko)->first();
         if(!$customer) {
             $cart = 0;
-            return view('internal.login', [
-                'cart' => $cart
+            return view('internal.login',[
+                'items'=>$items,
+                'itemsQuantity'=>$itQua,
+                'cart'=>$cart
             ]);
         } else {
             return Redirect::to('/account');
@@ -46,11 +90,32 @@ class CustomersController extends BaseController
     }
 
     public function registerIndex(Request $request){
-        $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $ciastko) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
+        }
+        $customer = Customer::where('sessionID', $ciastko)->first();
         if(!$customer) {
             $cart = 0;
-            return view('internal.register', [
-                'cart' => $cart
+            return view('internal.register',[
+                'items'=>$items,
+                'itemsQuantity'=>$itQua,
+                'cart'=>$cart
             ]);
         } else {
             return Redirect::to('/account');
@@ -93,12 +158,10 @@ class CustomersController extends BaseController
     }
 
     public function logout(Request $request){
-        if(isset($_COOKIE['sessionID'])){
             $customer = Customer::where('sessionID',$_COOKIE['sessionID'])->first();
+            if($customer){
             $customer->sessionID="";
             $customer->save();
-            unset($_COOKIE['sessionID']);
-            setcookie('sessionID',null,-1,'/');
             return Redirect::to('/');
         } else {
             return Redirect::to('/');

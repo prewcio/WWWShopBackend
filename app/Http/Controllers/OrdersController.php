@@ -15,11 +15,19 @@ use Illuminate\Support\Facades\Redirect;
 class OrdersController extends BaseController
 {
     public function index(){
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
         $carts = Cart::all();
         $items = array();
         $itQua = array();
         foreach($carts as $cart) {
-            if ($cart->sessionID == $_COOKIE['sessionID']) {
+            if ($cart->sessionID == $ciastko) {
                 $items[] = Product::where('id', $cart->itemID)->first();
                 $itQua[] = $cart->itemQuantity;
             } else {
