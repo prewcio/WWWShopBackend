@@ -19,7 +19,6 @@
             </form>
         </div>
         <div class="contact-us">
-            <a href="/addToCart/1">OK</a>
             <h1>Kontakt do nas</h1>
             <p>Lorem ipsum</p>
             <p>Lorem ipsum</p>
