@@ -1,0 +1,3 @@
+@include('navi')
+
+@include('footer')
