@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <header>
     <div class="logo">
-    <h1><a href="">Logo</a></h1>
+    <h1><a href="/">Logo</a></h1>
     </div>
     <nav>
         <ul class="nav-menu">
