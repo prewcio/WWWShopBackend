@@ -123,10 +123,21 @@ label input[type=radio]:checked ~ div{
     }
 }
 @media screen and (max-width: 768px) {
+    .content {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0px;
+    }
+    .content h1 {
+        font-size: 25px;
+        text-align: center;
+    }
     .summary{
         position: static;
         margin-top: 20px;
         margin-bottom: 120px;
-        width: 450px;
+        width: 300px;
     }
 }
