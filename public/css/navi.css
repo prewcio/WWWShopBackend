@@ -41,6 +41,9 @@ header a {
     color: var(--color-white);
     transition: 0.3s;
 }
+.nav-item .active {
+    color: red;
+}
 .bar-menu {
     display: block;
     width: 25px;
