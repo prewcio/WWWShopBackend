@@ -72,6 +72,9 @@ body {
     display: flex;
     flex-direction: column;
 }
+.split iframe {
+    height: 500px;
+}
 .container {
     margin-inline: auto;
     width: min(90%, 100rem);
