@@ -4,7 +4,8 @@
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php
-    setcookie('sessionID',csrf_token(), time()+(86400*30));
+    if(!$_COOKIE['sessionID'])
+        setcookie('sessionID',csrf_token(), time()+(86400*30));
 ?>
 <header>
     <div class="logo">
@@ -21,7 +22,13 @@
     </nav>
     <div class="links">
         <a href="/cart" id="cartNumber"><i class="ri-shopping-cart-line"></i>
-            <p id="cart-total">0</p>
+            <p id="cart-total">
+                @if($itemsQuantity)
+                    {{ array_sum($itemsQuantity) }}
+                @else
+                    0
+                @endif
+            </p>
         </a>
         <a href="/account"><i class="ri-account-circle-fill"></i></a>
     </div>

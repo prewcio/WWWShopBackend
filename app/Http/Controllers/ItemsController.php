@@ -24,17 +24,21 @@ class ItemsController extends BaseController
     }
 
     public function items(){
-        if(isset($_COOKIE['sessionID'])) {
-            $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
-            $cart = Cart::where('sessionID', $_COOKIE['sessionID'])->first();
-        } else {
-            $cart = 0;
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $_COOKIE['sessionID']) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
         }
-        $items = Product::all();
-        return view('internal.main', [
-            'product1'=>$items->first(),
-            'product2'=>$items->last(),
-            'cart' => $cart
+        return view('internal.main',[
+            'items'=>$items,
+            'itemsQuantity'=>$itQua,
+            'cart'=>$cart
         ]);
     }
 

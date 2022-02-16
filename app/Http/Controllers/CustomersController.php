@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\Customer;
+use App\Product;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -15,8 +16,8 @@ use Illuminate\Support\Facades\Redirect;
 class CustomersController extends BaseController
 {
     public function list(Request $request){
-        if(isset($_COOKIE['sessionID'])) {
-            $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+        $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+            if($customer){
             $customerID = $customer->id;
             $cart = Cart::where('customerID', $customerID)->first();
             return view('internal.account', [
@@ -34,10 +35,25 @@ class CustomersController extends BaseController
     }
 
     public function loginIndex(Request $request){
-        if(!isset($_COOKIE['sessionID'])) {
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $_COOKIE['sessionID']) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
+        }
+
+        $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+        if(!$customer) {
             $cart = 0;
-            return view('internal.login', [
-                'cart' => $cart
+            return view('internal.login',[
+                'items'=>$items,
+                'itemsQuantity'=>$itQua,
+                'cart'=>$cart
             ]);
         } else {
             return Redirect::to('/account');
@@ -45,26 +61,46 @@ class CustomersController extends BaseController
     }
 
     public function registerIndex(Request $request){
-        if(!isset($_COOKIE['sessionID'])) {
+        $carts = Cart::all();
+        $items = array();
+        $itQua = array();
+        foreach($carts as $cart) {
+            if ($cart->sessionID == $_COOKIE['sessionID']) {
+                $items[] = Product::where('id', $cart->itemID)->first();
+                $itQua[] = $cart->itemQuantity;
+            } else {
+                $cart = 0;
+            }
+        }
+        $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+        if(!$customer) {
             $cart = 0;
-            return view('internal.register', [
-                'cart' => $cart
+            return view('internal.register',[
+                'items'=>$items,
+                'itemsQuantity'=>$itQua,
+                'cart'=>$cart
             ]);
         } else {
             return Redirect::to('/account');
         }
     }
 
-    public function registerUser(Request $request){
-        if($request->input('password')==$request->input('passwordVerify')){
-            $customer = new Customer();
-            $customer->firstName = $request->input('firstName');
-            $customer->lastName = $request->input('lastName');
-            $customer->email = strtolower($request->input('email'));
-            $customer->password = password_hash($request->input('password'),PASSWORD_BCRYPT);
-            $customer->sessionID = "";
-            $customer->save();
-            return Redirect::to('/login')->with('regSuccess',1);
+    public function registerUser(Request $request)
+    {
+        $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+        if (!$customer) {
+            if ($request->input('password') == $request->input('passwordVerify')) {
+                $customer = new Customer();
+                $customer->firstName = $request->input('firstName');
+                $customer->lastName = $request->input('lastName');
+                $customer->email = strtolower($request->input('email'));
+                $customer->password = password_hash($request->input('password'), PASSWORD_BCRYPT);
+                $customer->sessionID = "";
+                $customer->save();
+                return Redirect::to('/login')->with('regSuccess', 1);
+            }
+        } else {
+            return Redirect::to('/account');
         }
     }
 
