@@ -28,5 +28,8 @@
             <i class="ri-twitter-fill"></i>
         </div>
     </div>
+    <div class="split">
+        <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=1215&height=400&hl=en&q=plac%20Defilad%201%20Warszawa+()&t=&z=13&ie=UTF8&iwloc=B&output=embed"></iframe>
+    </div>
 </div>
 @include('footer')
