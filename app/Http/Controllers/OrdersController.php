@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Redirect;
 class OrdersController extends BaseController
 {
     public function index(){
+        if(!isset($_COOKIE['sessionID']))
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
         $carts = Cart::all();
         $items = array();
         $itQua = array();
