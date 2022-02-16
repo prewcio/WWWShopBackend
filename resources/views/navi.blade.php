@@ -3,11 +3,6 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<?php
-    if(!isset($_COOKIE['sessionID'])){
-        setcookie('sessionID',csrf_token(), time()+(86400*30));
-    }
-?>
 <header>
     <div class="logo">
     <h1><a href="/">Logo</a></h1>
