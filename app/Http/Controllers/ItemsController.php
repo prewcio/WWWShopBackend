@@ -24,11 +24,19 @@ class ItemsController extends BaseController
     }
 
     public function items(){
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
         $carts = Cart::all();
         $items = array();
         $itQua = array();
         foreach($carts as $cart) {
-            if ($cart->sessionID == $_COOKIE['sessionID']) {
+            if ($cart->sessionID == $ciastko) {
                 $items[] = Product::where('id', $cart->itemID)->first();
                 $itQua[] = $cart->itemQuantity;
             } else {
@@ -43,11 +51,19 @@ class ItemsController extends BaseController
     }
 
     public function cart(){
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
         $carts = Cart::all();
         $items = array();
         $itQua = array();
         foreach($carts as $cart) {
-            if ($cart->sessionID == $_COOKIE['sessionID']) {
+            if ($cart->sessionID == $ciastko) {
                 $items[] = Product::where('id', $cart->itemID)->first();
                 $itQua[] = $cart->itemQuantity;
             } else {
@@ -72,14 +88,22 @@ class ItemsController extends BaseController
     }
 
     public function addToCart($id){
-        $cart = Cart::where('sessionID',$_COOKIE['sessionID'])
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
+        $cart = Cart::where('sessionID',$ciastko)
             ->where('itemID',$id)->first();
         if($cart) {
             $cart->itemQuantity = $cart->itemQuantity+1;
             $cart->save();
         } else {
             $cartID = $this->generateRandomString();
-            $customer = Customer::where('sessionID', $_COOKIE['sessionID'])->first();
+            $customer = Customer::where('sessionID', $ciastko)->first();
             $cart=new Cart();
             if($customer) {
                 $cart->customerID = $customer->id;
@@ -93,7 +117,15 @@ class ItemsController extends BaseController
         return Redirect::back();
     }
     public function remFromCart($id){
-        $cart = Cart::where('sessionID',$_COOKIE['sessionID'])
+        $ciastko = "";
+        if(!isset($_COOKIE['sessionID'])){
+            setcookie('sessionID',csrf_token(), time()+(86400*30));
+            $ciastko = csrf_token();
+        } else {
+            $ciastko = $_COOKIE['sessionID'];
+        }
+
+        $cart = Cart::where('sessionID',$ciastko)
             ->where('itemID',$id)->first();
         if($cart) {
             if($cart->itemQuantity>0) {
